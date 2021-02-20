@@ -1,65 +1,60 @@
 #include <iostream>
 #include <string>
-#include <cstdlib> 
 #include <cmath>
-// 4 libraries ini akan gw masukin kedalam program ini
+#include <cstdlib>
+// 4 headers yang akan gw masukin kedalam program ini
+// update an terbaru, fix bug
 
 using namespace std;
 
-void Pangkat(long a) {
-    long b = sqrt(a);
-    cout << b << endl; // ini adalah bilangan pangkatnya
-}
-
-int main() 
+int main()
 {
-    char mau; // declaration variable
+    cout << "\n ===== SELAMAT DATANG DI PROGRAM RANDOM DICE ===== \n" << endl; // opening
+    char mau1; // declaration variable
     cout << "Mau acak dadu? (y/n) : ";
-    cin >> mau;
-    // inputanya
-
-   if( mau == 'y' ) {
-       while(true) {
-           char mau2; // declaration of variable wanna
-           cout << "Tekan (y/n) : ";
-           cin >> mau2;
-           // inputan wanna
-           if( mau2 == 'y' ) {
-               int acak = 1 + (rand() % 8);
-               cout << "Hasil randomnya adalah " << acak << endl; // ini hasil randomnya
-               cout << "Hasil kuadratnya adalah ";
-               Pangkat(acak); // juga tersedia bilangan acak/random
-           } else if( mau2 == 'n' ) {
-               cout << "Oke.. thanks" << endl;
-               break;
-           } else {
-               cout << "Lol\n" << endl;
-               int ulang = 1;
-               while( ulang <= 500 ) {
-                   if( ulang == 10 ) {
-                       ulang++;
-                       continue; // lanjutkan
-                   }
-                   cout << "Error system at " << ulang << endl;
-                   ulang++;
-               }
-               break;
-           }
-       }
-   } else if( mau == 'n' ) {
-       cout << "Oke" << endl;
-   } else {
-       cout << "Wtf.. lolz\n" << endl;
-       int ulang2 = 1;
-       do{
-           cout << "Error program on " << ulang2 << endl;
-           ulang2++;
-       } while( ulang2 <= 600 ); 
-   }
-   cout << endl; // line baru
-   cout << "License: Tool ini merupakan tool yang gratis dan bersumber terbuka \n";
-   cout << "User dapat menggunakan tool ini dimanapun dan kapanpun, bahkan bisa diubah\n";
-   cout << "Kode didalamnya." << endl; // license wise
+    cin >> mau1;
+    // inputan user wanna
+    if( mau1 == 'y' ) {
+        cout << "Hasilnya " << 1 + (rand() % 8) << endl << endl; // hasil yang pertamanya
+        while(true) {
+            char mau2; // declaration variable 2nd
+            cout << "Mau lagi? (y/n) : ";
+            cin >> mau2;
+            // inputan user wanna 2nd
+            if( mau2 == 'y' ) {
+                int tampung = 1 + (rand() % 8); // gw bikin variable aja
+                cout << "- Hasil randomnya adalah " << tampung << endl; // ini hasil perulangan randomnya (forever)
+                cout << "- Hasil akar kuadratnya adalah " << sqrt(tampung) << endl;
+            } else if( mau2 == 'n' ) {
+                cout << "Oke sampai jumpa" << endl;
+                break;
+            } else {
+                cout << "Lol" << endl;
+                int ulang = 1;
+                while( ulang <= 600 ) {
+                    if( ulang == 5 ) {
+                        ulang++; // increment didalam break & continue
+                        continue;
+                    }
+                    cout << "Error 405 on " << ulang << endl;
+                    ulang++;
+                }
+                break;
+            }
+        }
+    } else if( mau1 == 'n' ) {
+        cout << "Oke, terima kasih atas menggunakan tool ini" << endl;
+    } else {
+        cout << "Lolz" << endl;
+        int ulang2 = 1;
+        do{
+            cout << "Error system on " << ulang2 << endl;
+            ulang2++;
+        } while( ulang2 <= 800 );
+    }
+    cout << endl; // endline baru
+    cout << "Terima kasih atas menggunakan software ini dengan baik, aku harap\n";
+    cout << "Kamu menyukainya" << endl;
 
     cin.get();
     return 0;
